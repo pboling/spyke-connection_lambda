@@ -1,8 +1,30 @@
-AllCops:
-  TargetRubyVersion: 3.0
+# We want Exclude directives from different
+# config files to get merged, not overwritten
+inherit_mode:
+  merge:
+    - Exclude
 
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
+require:
+  - rubocop-lts
+  - rubocop-packaging
 
-Style/StringLiteralsInInterpolation:
-  EnforcedStyle: double_quotes
+inherit_gem:
+  rubocop-lts: config/rubygem.yml
+
+# Metrics cops are disabled in Standard by default)
+Metrics:
+  Enabled: true
+
+Layout/LineLength:
+  Max: 120
+
+# Inside a RubyGem do not require a Gemfile to have defined versions.
+# In fact, runtime dependencies that must be declared inside the Gemfile to override the source
+#   should *not* specify a version.  Instead, they should rely on the version given by the gemspec.
+# We do require the gemspec to have specified versions via cop Gemspec/DependencyVersion.
+Bundler/GemVersion:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: true
+  TreatCommentsAsGroupSeparators: false

@@ -55,9 +55,9 @@ puts <<~RESULTS
   [ CHECKSUM SHA-512: #{checksum512} ]
   [ CHECKSUM SHA-256 PATH: #{checksum256_path} ]
   [ CHECKSUM SHA-512 PATH: #{checksum512_path} ]
-  
+
   ... Running ...
-  
+
   #{git_cmd}
 RESULTS
 

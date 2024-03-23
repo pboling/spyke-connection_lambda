@@ -48,5 +48,15 @@ Gem::Specification.new do |spec|
   spec.add_dependency("activesupport", ">= 4")             # >= Ruby 1.8.7
   spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.4") # >= Ruby 2.2
 
+  spec.add_development_dependency "minitest"
+  spec.add_development_dependency "minitest-line"
+  spec.add_development_dependency "minitest-reporters"
+  spec.add_development_dependency "mocha"
+  spec.add_development_dependency "multi_json"
+  spec.add_development_dependency "pry"
+  spec.add_development_dependency "rake"
+  spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "simplecov-lcov"
   spec.add_development_dependency("spyke", ">= 7.0")       # >= Ruby 1.8.7 ???
+  spec.add_development_dependency "webmock"
 end

@@ -5,8 +5,11 @@ require "minitest/test_task"
 
 Minitest::TestTask.create
 
-require "rubocop/rake_task"
+begin
+  require "rubocop/lts"
+  Rubocop::Lts.install_tasks
+rescue LoadError
+  puts "Linting not available"
+end
 
-RuboCop::RakeTask.new
-
-task default: %i[test rubocop]
+task default: %i[test rubocop_gradual]
